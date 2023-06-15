@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple hash</title>
+</head>
+<body>
+  
+  <p id="content">Loading...</p>
+  
+  <script>
+    // Get the query parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const parameter = urlParams.get('parameter');
+    const contentElement = document.getElementById("content");
+
+    // Display different content based on the parameter
+    const inputID = Number(parameter)
+    if (inputID == NaN || inputID == 0) {
+        contentElement.textContent = 'Invalid parameter or no parameter provided'; 
+    } else {
+        const randomPrimeNumber = 38039
+        const salt = 13043
+        contentElement.textContent = inputID%randomPrimeNumber+salt;
+    }
+  </script>
+</body>
+</html>
